@@ -455,6 +455,20 @@ class SignedAPI(trustly.api.api.API):
                     )
                 )
         return self.call(data)
+    
+    def view_automatic_settlement_details_csv(self, settlementdate, apiversion="1.2", currency=None):
+
+        attributes = dict(APIVersion=apiversion)
+
+        data = trustly.data.jsonrpcrequest.JSONRPCRequest(method='ViewAutomaticSettlementDetailsCSV',
+                data=dict(
+                    SettlementDate=settlementdate,
+                    Currency=currency
+                    ),
+                attributes=attributes
+                )
+        
+        return self.call(data)
 
     def hello(self):
             # The hello call is not signed, use an unsigned API to do the request and then void it
