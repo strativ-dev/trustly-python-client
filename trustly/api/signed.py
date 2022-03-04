@@ -470,7 +470,7 @@ class SignedAPI(trustly.api.api.API):
         
         return self.call(data)
     
-    def account_ledger(self, fromdate, todate, currency="null"):
+    def account_ledger(self, fromdate, todate, currency=None):
         
         data = trustly.data.jsonrpcrequest.JSONRPCRequest(method='AccountLedger',
                 data=dict(
